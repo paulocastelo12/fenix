@@ -1,0 +1,37 @@
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#" (click)="isOpended=!isOpended">
+     <fa-icon [icon]="bars"  size="lg"></fa-icon> Fenix 
+  </a>
+</nav>
+
+<div class="sidenav" [ngStyle]="{'width': isOpended || isShowing? '240px': '56px'}"  (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+  <ul>
+    <li *ngFor="let modulo of modulos">
+      <a data-toggle="collapse" href="#{{modulo.dropDownTarget}}" role="button" aria-expanded="false"  [ngClass]="{'active-link': modulo.active}"
+      aria-controls="{{modulo.dropDownTarget}}" (click)="changeSetting(modulo)">
+        <div class="row col-md-12 spaces-div">
+          <div class="col-md-2"><fa-icon [icon]="modulo.imageIcon" size="lg" ></fa-icon></div>
+          <div class="col-md-8" *ngIf="isOpended || isShowing">{{modulo.description}}</div>
+          <div class="col-md-2" *ngIf="isOpended || isShowing" [ngClass]="{'arrowUp': modulo.dropDownCollapse, 'arrowDow': !modulo.dropDownCollapse }"><fa-icon [icon]="chevrondown" size="sm" *ngIf="modulo.subMenuList" ></fa-icon></div>
+        </div>
+      </a>
+      <ul class="collapse" id="{{modulo.dropDownTarget}}" *ngIf="modulo.subMenuList && isOpended || isShowing" >
+        <li *ngFor="let submneu of modulo.subMenuList">
+          <a href="#"><div class="col-md-12">{{submneu}}</div></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="page-content" [ngStyle]="{'margin-left': isOpended || isShowing ? '245px': '61px'}">
+  <div class="row col-md-12" style=" margin: 0px !important; padding: 0px !important;">
+    <div class="col-md-2" style="background-color: green;"><h1>T</h1></div>
+    <div class="col-md-2" style="background-color: gray;"><h1>T</h1></div>
+    <div class="col-md-2" style="background-color: rgb(215, 218, 40);"><h1>T</h1></div>
+    <div class="col-md-2" style="background-color: green;"><h1>T</h1></div>
+    <div class="col-md-2" style="background-color: gray;"><h1>T</h1></div>
+    <div class="col-md-2" style="background-color: palevioletred;"><h1>T</h1></div>
+  </div>
+</div>

@@ -5,6 +5,6 @@ export interface IModuleStructure
     dropDownTarget: string;
     imageIcon;
     dropDownCollapse?: boolean;
-    subMenuList?: string[];
+    subMenuList?:string[][];
     active?: boolean;
 }

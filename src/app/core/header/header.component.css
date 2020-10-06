@@ -1,12 +1,21 @@
-.div-header{
-    padding-left: 15px;
-    padding-right: 10px;
+.header {
+    z-index: 1020;
+    margin-bottom: 0;
 }
 
-.div-header img{
-    width: 100px;  
+.navbar {
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
-.div-header div{
-   cursor: pointer; 
+.navbar.navbar-light.bg-light {
+    background: #fff !important;
+}
+
+.navbar img{
+    width: 80px;
 }

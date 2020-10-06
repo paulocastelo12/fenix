@@ -6,6 +6,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class SidebarService {
 
   isOpen = true;
+  isShow = false;
 
   emitirActionSide = new EventEmitter<boolean>();
 
@@ -15,6 +16,20 @@ export class SidebarService {
     this.isOpen = !this.isOpen;
     this.emitirActionSide.emit(this.isOpen)
     //console.log(this.isOpen);
+  }
+
+  mouseen() {
+    if (!this.isOpen) {
+      this.isShow = true;
+      this.emitirActionSide.emit(this.isShow)
+    }
+  }
+
+  mouselea() {
+    if (!this.isOpen) {
+      this.isShow = false;
+      this.emitirActionSide.emit(this.isShow)
+    }
   }
 }
 

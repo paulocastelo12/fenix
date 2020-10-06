@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faBox, faCashRegister, faChevronDown, faCoffee, faCog, faFile, faFolder, faFolderPlus, faMoneyCheck, faMoneyCheckAlt, faShoppingBasket, faShoppingCart, faTachometerAlt, faTruck, faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faBars, faBox, faCashRegister, faChevronDown, faCoffee, faCog, faFile, faFolder, faFolderPlus, faMoneyCheck, faMoneyCheckAlt, faShoppingBasket, faShoppingCart, faTachometerAlt, faTruck, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { IModuleStructure } from './siderbar.model';
+
 
 @Component({
   selector: 'app-siderbar',
@@ -22,6 +23,7 @@ export class SiderbarComponent implements OnInit {
   tachometer = faTachometerAlt;
   chevrondown = faChevronDown;
   bars = faBars;
+  angleleft = faAngleLeft;
 
   isOpended: boolean = true;
   isShowing = false;
@@ -105,6 +107,10 @@ export class SiderbarComponent implements OnInit {
     this.sidebarService.emitirActionSide.subscribe(
       isOpenBar => this.isOpended = isOpenBar
     );
+
+    this.sidebarService.emitirActionSide.subscribe(
+      isShow => this.isShowing = isShow
+    );
   }
 
   
@@ -118,20 +124,22 @@ export class SiderbarComponent implements OnInit {
   }
 
   mouseenter() {
-    if (!this.isOpended) {
-      this.isShowing = true;
-    }
+    this.sidebarService.mouseen()
   }
 
   mouseleave() {
-    if (!this.isOpended) {
-      this.isShowing = false;
-    }
+    this.sidebarService.mouselea()
   }
 
   formatterRouterLinkSubMenu(link: string): string {
     console.log(link);
     return link;
+  }
+  
+
+  ocultarmenu() {
+    this.sidebarService.openSideBar();
+    this.isOpended ? this.angleleft = faAngleLeft : this.angleleft = faAngleRight
   }
 
 }

@@ -1,5 +1,27 @@
-<div class="col-md-12">
-   <app-form-clientes></app-form-clientes>
-   <div class="space"></div>
-   <app-table-clientes></app-table-clientes>
+<div class="row">
+   <div class="col-md-12" style="padding: 0px !important;">
+      <div class="card ">
+         <div class="card-header" style="background-color: black; color: white;">
+            <div class="d-flex justify-content-between">
+               <span style="font-size: 16px;"><fa-icon [icon]="plus" size="sm"></fa-icon> Novo cliente </span>
+               <div>
+                  <button type="button" class="btn btn-default btn-circle-refresh">
+                     <fa-icon [icon]="redo" size="sm"></fa-icon>
+                  </button>
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="collapse"
+                     href="#collapsePanel" role="button" aria-expanded="false" aria-controls="collapsePanel">
+                     <fa-icon [icon]="minus" size="sm"></fa-icon>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <div class="collapse show" id="collapsePanel">
+            <div class="card-body">
+              <app-form-clientes></app-form-clientes>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
 </div>

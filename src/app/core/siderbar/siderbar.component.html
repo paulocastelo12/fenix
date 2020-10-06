@@ -1,46 +1,76 @@
-<div class="sidenav" [ngStyle]="{'width': isOpended || isShowing? '240px': '56px'}"  (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-    <ul>
-      <li *ngFor="let modulo of modulos">
+<!-- begin #sidebar -->
+<div id="sidebar" class="sidebar" [ngStyle]="{'width': isOpended || isShowing? '220px': '56px'}">
+  <!-- begin sidebar scrollbar -->
+  <div data-scrollbar="true" data-height="100%">
 
-        <a data-toggle="collapse" routerLink="/{{modulo.dropDownTarget}}" *ngIf="!modulo.subMenuList" role="button" aria-expanded="false"  [ngClass]="{'active-link': modulo.active}"
-        aria-controls="{{modulo.dropDownTarget}}" (click)="changeSetting(modulo)">
-          <div class="row col-md-12 spaces-div">
-            <div class="col-md-2"><fa-icon [icon]="modulo.imageIcon" size="lg" ></fa-icon></div>
-            <div class="col-md-8" *ngIf="isOpended || isShowing">{{modulo.description}}</div>
-            <div class="col-md-2" *ngIf="isOpended || isShowing" [ngClass]="{'arrowUp': modulo.dropDownCollapse, 'arrowDow': !modulo.dropDownCollapse }"><fa-icon [icon]="chevrondown" size="sm" *ngIf="modulo.subMenuList" ></fa-icon></div>
-          </div>
-        </a>
+    <!-- begin sidebar user -->
+    <ul class="nav">
+      <li class="nav-profile">
 
-        <a data-toggle="collapse" href="#{{modulo.dropDownTarget}}" *ngIf="modulo.subMenuList" role="button" aria-expanded="false"  [ngClass]="{'active-link': modulo.active}"
-        aria-controls="{{modulo.dropDownTarget}}" (click)="changeSetting(modulo)">
-          <div class="row col-md-12 spaces-div">
-            <div class="col-md-2"><fa-icon [icon]="modulo.imageIcon" size="lg" ></fa-icon></div>
-            <div class="col-md-8" *ngIf="isOpended || isShowing">{{modulo.description}}</div>
-            <div class="col-md-2" *ngIf="isOpended || isShowing" [ngClass]="{'arrowUp': modulo.dropDownCollapse, 'arrowDow': !modulo.dropDownCollapse }"><fa-icon [icon]="chevrondown" size="sm" *ngIf="modulo.subMenuList" ></fa-icon></div>
-          </div>
-        </a>
-
-        <ul class="collapse" id="{{modulo.dropDownTarget}}" *ngIf="modulo.subMenuList && isOpended || isShowing" >
-          <li *ngFor="let submneu of modulo.subMenuList">
-            <a routerLink="/{{submneu[1]}}"><div class="col-md-12">{{submneu[0]}}</div></a>
-          </li>
-        </ul>
       </li>
     </ul>
-  </div>
-  
-  <!-- <div class="page-content" [ngStyle]="{'margin-left': isOpended || isShowing ? '245px': '61px'}">
-    <div class="row col-md-12" style=" margin: 0px !important; padding: 0px !important;">
-      <div class="col-md-2" style="background-color: green;"><h1>GRID</h1></div>
-      <div class="col-md-2" style="background-color: gray;"><h1>GRID</h1></div>
-      <div class="col-md-2" style="background-color: rgb(215, 218, 40);"><h1>GRID</h1></div>
-      <div class="col-md-2" style="background-color: green;"><h1>GRID</h1></div>
-      <div class="col-md-2" style="background-color: gray;"><h1>GRID</h1></div>
-      <div class="col-md-2" style="background-color: palevioletred;"><h1>GRID</h1></div>
-      <router-outlet></router-outlet>
+    <!-- end sidebar user -->
+
+    <!-- begin sidebar nav -->
+    <div id="accordion" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+      <ul class="nav">
+        <li *ngFor="let modulo of modulos">
+
+          <a routerLink="/{{modulo.dropDownTarget}}" data-toggle="collapse" aria-expanded="true"
+            aria-controls="{{modulo.dropDownTarget}}" *ngIf="!modulo.subMenuList"
+            [ngClass]="{'active-link': modulo.active}" (click)="changeSetting(modulo)">
+            <table>
+              <tr>
+                <td width=10% style="padding-left: 8px; ">
+                  <fa-icon [icon]="modulo.imageIcon" size="lg"></fa-icon>
+                </td>
+                <td style="padding-left: 5px; padding-right: 5px; text-align:start;" *ngIf="isOpended || isShowing">
+                  {{modulo.description}}</td>
+              </tr>
+            </table>
+          </a>
+
+          <a href="#{{modulo.dropDownTarget}}" data-toggle="collapse" data-target="#{{modulo.dropDownTarget}}"
+            aria-expanded="true" aria-controls="{{modulo.dropDownTarget}}" *ngIf="modulo.subMenuList"
+            [ngClass]="{'active-link': modulo.active}" (click)="changeSetting(modulo)">
+            <table>
+              <tr>
+                <td width=10% style="padding-left: 8px; ">
+                  <fa-icon [icon]="modulo.imageIcon" size="lg"></fa-icon>
+                </td>
+                <td style="padding-left: 5px; padding-right: 5px; text-align:start;" *ngIf="isOpended || isShowing">
+                  {{modulo.description}}</td>
+                <td style=" text-align:start;" width=10%>
+                  <fa-icon [icon]="chevrondown" size="sm" *ngIf="(isOpended || isShowing) && modulo.subMenuList">
+                  </fa-icon>
+                </td>
+              </tr>
+            </table>
+          </a>
+
+          <ul id="{{modulo.dropDownTarget}}" *ngIf="(isOpended || isShowing) && modulo.subMenuList" class="collapse"
+            aria-labelledby="headingOne" data-parent="#accordion">
+            <li *ngFor="let submneu of modulo.subMenuList"><a routerLink="/{{submneu[1]}}">{{submneu[0]}}</a></li>
+          </ul>
+
+        </li>
+      </ul>
     </div>
-  </div> -->
-  
-  <div class="page-content" [ngStyle]="{'margin-left': isOpended || isShowing ? '245px': '61px'}">
-    <router-outlet></router-outlet>
+    <!-- end sidebar nav -->
+
+    <div class="col-md-12 bt-menu-open" *ngIf="isOpended || isShowing">
+      <span (click)="ocultarmenu()">
+        <fa-icon [icon]="angleleft" size="lg"></fa-icon> Ocultar menu
+      </span>
+    </div>
+
+    <div class="col-md-12 bt-menu-close" *ngIf="!isOpended && !isShowing">
+      <div class="col-md-12" (click)="ocultarmenu()">
+        <fa-icon [icon]="angleleft" size="lg"></fa-icon>
+      </div>
+    </div>
+
   </div>
+  <!-- end sidebar scrollbar -->
+</div>
+<!-- end #sidebar -->

@@ -1,41 +1,111 @@
-.page-content{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    /* margin-right: 5px; */
-    /* background-color: tomato; */
+
+ .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 54px;
+    background: #2d353c;
+    z-index: 1010;
     transition: all .2s;
 }
 
-.sidenav{
-    user-select: none;
-    box-sizing: border-box;
-    position: absolute;
-    height: 100% ;
-    background-color: #1b1b1b;
-    transition: all .2s;
+
+.sidebar .nav > li{
+    width: 220px;
+    
 }
 
-.sidenav ul{
+.sidebar .nav > li.nav-profile {
+    height: 50px;
+    padding: 20px;
+    color: #fff;
+    background: #1a2229;
+}
+.sidebar .nav > li.nav-profile a {
+    padding: 0;
+}
+
+.sidebar .nav {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
     list-style: none;
 }
 
-.sidenav ul li{
+
+.sidebar .nav > li{
     line-height: 35px;
     margin-top: 5px;
+    
 }
 
-.sidenav ul li a{
+.sidebar .nav > li a{
     color: white;
-    font-size: 14.5px;
+    font-size: 14.0px;
     font-weight: 200;
     display: block;
     width: 100%;
     text-decoration: none;
     letter-spacing: 1px;
-    
+    padding-left: 6px;
+}
+
+.sidebar .nav > li a:hover{
+    color: white;
+    background-color:orange;
+    border-left-color:   white;
+}
+
+.sidebar .nav > li ul li{
+    line-height: 25px;
+    margin-top: 2px;
+    list-style-type: none;
+}
+
+.sidebar .nav > li ul li a{
+    padding-left: 0px;
+    color: gray;
+    font-size: 12.5px;
+    font-weight: 200;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+
+.sidebar .nav > li ul li  a:hover{
+    color: white;
+    background-color:#2d353c;
+    border-left-color:   white;
+}
+
+.bt-menu-open{
+    text-align: right; margin-top: 50px;
+}
+
+.bt-menu-open > span{
+    background-color: #1e272e;
+    padding: 8px; border-radius: 50px;
+    color: white; 
+    cursor: pointer;
+}
+
+.bt-menu-close{
+    padding: 5px !important;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.bt-menu-close > div{
+    align-items: baseline;
+    height: 30px;
+    background-color: #1e272e;
+    padding-top: 5px;
+    border-radius: 100px;
+    color: white; 
+    cursor: pointer;
 }
 
 .active-link{
@@ -44,49 +114,4 @@
     border-left-color:   white;
 }
 
-.sidenav ul li a:hover{
-    color: white;
-    background-color:orange;
-    border-left-color:   white;
-}
-
-.sidenav ul li a:hover{
-    color: white;
-    background-color:orange;
-    border-left-color:   white;
-}
-
-.sidenav ul ul{
-    position: static;
-}
-
-.sidenav ul ul li{
-    line-height: 30px;
-    border-bottom: #e6e6e6;
-}
-
-.sidenav ul ul li a{
-    padding-left: 40px;
-}
-
-.spaces-div{
-    margin: 0px !important;
-    padding: 0px !important;
-}
-
-fa-icon{
-    padding-right: 12px;
-}
-
-
-
-.arrowUp{
-    transition: transform 300ms ease;
-    transform: rotate(180deg)
- }
-
- .arrowDow{
-    transition: transform 300ms ease;
-    transform: rotate(0deg)
- }
 

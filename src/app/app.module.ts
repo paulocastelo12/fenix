@@ -13,6 +13,8 @@ import { ClientesComponent } from './modules/clientes/clientes.component';
 import { AgendaComponent } from './modules/agenda/agenda.component';
 import { TableClientesComponent } from './modules/clientes/components/table-clientes/table-clientes.component';
 import { FormClientesComponent } from './modules/clientes/components/form-clientes/form-clientes.component';
+import { ContentComponent } from './core/content/content.component';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { FormClientesComponent } from './modules/clientes/components/form-client
     ClientesComponent,
     AgendaComponent,
     TableClientesComponent,
-    FormClientesComponent
+    FormClientesComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,25 @@
-.space{
-    height: 24px;
+
+.btn-circle {
+    width: 18px;
+    height: 18px;
+    padding: 0px 3px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 0;
+    background-color: orange;
+    color: honeydew;
+}
+
+.btn-circle-refresh {
+    width: 18px;
+    height: 18px;
+    padding: 0px 3px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 0;
+    background-color: mediumseagreen;
+    color: white;
+    margin-right: 5px;
 }
